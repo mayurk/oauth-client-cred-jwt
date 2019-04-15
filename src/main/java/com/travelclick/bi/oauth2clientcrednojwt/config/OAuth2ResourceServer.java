@@ -12,12 +12,9 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         //@formatter:off
-        http.authorizeRequests()
+        http.authorizeRequests().mvcMatchers("/api/**").hasAnyAuthority("mak", "admin")
             .anyRequest()
-            .authenticated()
-        .and()
-            .requestMatchers()
-            .antMatchers("/api/**");
+            .authenticated();
         //@formatter:on
     }
 

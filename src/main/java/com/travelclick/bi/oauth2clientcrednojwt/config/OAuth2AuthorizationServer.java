@@ -40,8 +40,8 @@ public class OAuth2AuthorizationServer extends
         clients.inMemory()
             .withClient("clientadmin")
             .secret("123")
-            .authorizedGrantTypes("client_credentials")
-            .scopes("admin");
+            .authorizedGrantTypes("client_credentials").authorities("mak", "tom")
+            .scopes("mak");
           
         //@formatter:on
     }
